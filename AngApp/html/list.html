@@ -1,0 +1,19 @@
+﻿<input type="text" ng-model="search" class="search-query" placeholder="Search">
+<table>
+  <thead>
+  <tr>
+    <th>FirstName</th>
+    <th>LastName</th>
+    <th><a href="#/new"><i class="icon-plus-sign"></i></a></th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr ng-repeat="user in users | filter:search | orderBy:'name'">
+    <td><a href="/Action/JsonUsers/{{user.id}}" target="_blank">{{user.firstName}}</a></td>
+    <td>{{user.lastName}}</td>
+    <td>
+      <a href="#/edit/{{user.id}}"><i class="icon-pencil"></i></a>
+    </td>
+  </tr>
+  </tbody>
+</table>

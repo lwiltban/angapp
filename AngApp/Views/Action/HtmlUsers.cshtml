@@ -1,0 +1,37 @@
+﻿@{
+    ViewBag.Title = "WISE Admin users";
+    //Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<link rel="stylesheet" href="/Content/bootstrap.css" />
+
+<hgroup class="title">
+    <h1>@ViewBag.Title.</h1>
+</hgroup>
+
+<input type="text" class="search-query" placeholder="Search">
+<table>
+  <thead>
+  <tr>
+    <th>FirstName</th>
+    <th>LastName</th>
+    <th><a href="#/new"><i class="icon-plus-sign"></i></a></th>
+  </tr>
+  </thead>
+  <tbody>
+
+    @foreach(var item in ViewBag.items)
+    {
+      <tr>
+        <td><a href="/Action/HtmlUsers/@item.id" target="_blank">@item.firstName</a></td>
+        <td>@item.lastName</td>
+        <td>
+          <a href="#/edit/@item.id"><i class="icon-pencil"></i></a>
+        </td>
+      </tr>
+    }    
+  </tbody>
+</table>
+}    
+</section>
+

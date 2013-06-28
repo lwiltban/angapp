@@ -2,11 +2,13 @@
 using System.Web.Mvc;
 using System.Web.Script.Serialization;
 using AngService;
+using NLog;
 
 namespace AngApp.Controllers
 {
     public class ActionController : Controller
     {
+
         /// <summary>
         /// Returns a list of users based on the passed in id
         /// </summary>
@@ -14,9 +16,12 @@ namespace AngApp.Controllers
         /// <returns></returns>
         private IEnumerable<AngModel.User> GetUsers(int? id)
         {
+            Log log = new Log();
+            log.Debug(string.Format("GetUser {0}", id));
             RepoService repo = new RepoService();
 
             var users = repo.GetUsers(id);
+            log.Debug(string.Format("GetUser {0}", users == null ? "NONE": "Good stuff"));
             return users;
         }
 

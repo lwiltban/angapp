@@ -25,7 +25,7 @@ namespace AngApp.Controllers
         public ActionResult Http500()
         {
             ViewBag.ErrorCode = "500";
-            ViewBag.ErrorMessage = "Sorry bro, system failed";
+            ViewBag.ErrorMessage = RouteData.Values["exception"];
             return View("Error");
         }
     }

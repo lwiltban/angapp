@@ -7,6 +7,8 @@ using System.Web.Mvc;
 using System.Web.Optimization;
 using System.Web.Routing;
 using AngApp.Controllers;
+using AngService;
+using NLog;
 
 namespace AngApp
 {
@@ -57,7 +59,8 @@ namespace AngApp
                     routeData.Values["action"] = "Http500";
                     break;
             }
-
+            Log log = new Log();
+            log.Error("ApplicationError exception: " + httpException.Message); 
             IController errorsController = new ErrorsController();
             var rc = new RequestContext(new HttpContextWrapper(Context), routeData);
             errorsController.Execute(rc);

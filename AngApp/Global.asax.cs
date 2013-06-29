@@ -42,10 +42,13 @@ namespace AngApp
             routeData.Values["controller"] = "Errors";
             routeData.Values["action"] = "General";
             routeData.Values["exception"] = exception;
-            Response.StatusCode = 500;
             if (httpException != null)
             {
                 Response.StatusCode = httpException.GetHttpCode();
+            }
+            else
+            {
+                Response.StatusCode = 500;
             }
             switch (Response.StatusCode)
             {
@@ -60,7 +63,7 @@ namespace AngApp
                     break;
             }
             Log log = new Log();
-            log.Error("ApplicationError exception: " + httpException.Message); 
+            log.Error("ApplicationError exception: " + exception.Message); 
             IController errorsController = new ErrorsController();
             var rc = new RequestContext(new HttpContextWrapper(Context), routeData);
             errorsController.Execute(rc);

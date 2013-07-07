@@ -1,4 +1,4 @@
-﻿angular.module('userslab', ['ngResource']).
+﻿angular.module('userslab', ['ngResource', 'globalErrors']).
     factory('User', function ($resource) {
         var User = $resource('/Action/JsonUsers/:id',
              {

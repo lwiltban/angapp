@@ -2,18 +2,22 @@
 <html ng-app="user">
   <head>
     <link rel="stylesheet" href="http://twitter.github.io/bootstrap/assets/css/bootstrap.css"/>
+    <link rel="stylesheet" href="/Content/Site.css" />
   </head>
   <body>
         <h2>WISE Admin users</h2>
+      <div class="messagesList"></div>
       <tabs>
           <pane title="Users">
             <div ng-view></div>
         </pane>
     </tabs>
 
+    <script src="/Scripts/jquery-1.8.2.js"></script>      
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.7/angular.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.7/angular-resource.min.js"></script>
     <script src="/Scripts/user.js"></script>
     <script src="/Scripts/userslab.js"></script>
+    <script src="/Scripts/errors.js"></script>
   </body>
 </html>
